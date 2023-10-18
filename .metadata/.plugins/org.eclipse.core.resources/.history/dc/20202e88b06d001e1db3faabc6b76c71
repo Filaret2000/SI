@@ -1,0 +1,19 @@
+package lab1;
+
+public class Arithmetic {
+	private double a, b;
+	
+	public Arithmetic() {
+		
+	}
+	
+	public void setA(double x) {
+		this.a = x;
+	}
+	
+	public void setB(double x) {
+		this.b = x;
+	}
+	
+	
+}

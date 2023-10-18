@@ -1,0 +1,12 @@
+package lab1;
+
+public class Result extends Arithmetic {
+	
+	public Result() {
+		super();
+	}
+	
+	public void setFirstOperand(double x) {
+		super.setA(x);
+	}
+}

@@ -1,0 +1,32 @@
+package lab1;
+
+public class Arithmetic {
+	private double a, b;
+	private String operation;
+	
+	public Arithmetic() {
+		
+	}
+	
+	public void setFirstOperand(double x) {
+		this.a = x;
+	}
+	
+	public void setSecondOperand(double x) {
+		this.b = x;
+	}
+	
+	public void setOperation(String s) {
+		operation = s;
+	}
+	
+	public Double calculate() {
+		switch (operation) {
+		case "+":
+			return a + b;
+
+		default:
+			return null;
+		}
+	}
+}

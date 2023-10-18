@@ -1,0 +1,49 @@
+package lab1;
+
+public class Arithmetic {
+	private double a, b;
+	private String operation;
+	private Result result = new Result();
+	
+	public Arithmetic() {
+		
+	}
+	
+	public void setFirstOperand(double x) {
+		this.a = x;
+	}
+	
+	public void setSecondOperand(double x) {
+		this.b = x;
+	}
+	
+	public void setOperation(String s) {
+		operation = s;
+	}
+	
+	public String calculate() {
+		switch (operation) {
+		case "+":
+			return Double.toString(a + b);
+		case "-":
+			return Double.toString(a - b);
+		case "*":
+			return Double.toString(a * b);
+		case "/":
+			if(result.isDevidePossible(a, b)) {
+				return Double.toString(a / b);
+			} else {
+				return "NaN";
+			}
+
+		default:
+			return null;
+		}
+	}
+	
+	public void clear() {
+		this.a = 0;
+		this.b = 0;
+		operation = "";
+	}
+}
