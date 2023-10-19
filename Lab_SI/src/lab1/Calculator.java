@@ -1,10 +1,10 @@
 package lab1;
-//Crainiciuc Filaret-Niculai gr 3142A
+//Crainiciuc Filaret-Niculai
+//Gr 3142A
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 import javax.swing.JButton;
-import java.awt.BorderLayout;
 import javax.swing.JTextField;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
@@ -16,7 +16,7 @@ public class Calculator {
 	private JFrame frmCalculator;
 	private JTextField textField;
 	private Arithmetic arithmetic = new Arithmetic();
-
+	
 	/**
 	 * Launch the application.
 	 */
@@ -53,8 +53,7 @@ public class Calculator {
 		JButton btnNewButton = new JButton("7");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				String str = textField.getText();
-				textField.setText(str + "7");
+				addNumberToTextField("7");
 			}
 		});
 		btnNewButton.setFont(new Font("Tahoma", Font.PLAIN, 30));
@@ -64,8 +63,7 @@ public class Calculator {
 		JButton btnNewButton_1 = new JButton("8");
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				String str = textField.getText();
-				textField.setText(str + "8");
+				addNumberToTextField("8");
 			}
 		});
 		btnNewButton_1.setFont(new Font("Tahoma", Font.PLAIN, 30));
@@ -75,8 +73,7 @@ public class Calculator {
 		JButton btnNewButton_2 = new JButton("9");
 		btnNewButton_2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				String str = textField.getText();
-				textField.setText(str + "9");
+				addNumberToTextField("9");
 			}
 		});
 		btnNewButton_2.setFont(new Font("Tahoma", Font.PLAIN, 30));
@@ -86,8 +83,7 @@ public class Calculator {
 		JButton btnNewButton_3 = new JButton("4");
 		btnNewButton_3.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				String str = textField.getText();
-				textField.setText(str + "4");
+				addNumberToTextField("4");
 			}
 		});
 		btnNewButton_3.setFont(new Font("Tahoma", Font.PLAIN, 30));
@@ -97,8 +93,7 @@ public class Calculator {
 		JButton btnNewButton_4 = new JButton("5");
 		btnNewButton_4.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				String str = textField.getText();
-				textField.setText(str + "5");
+				addNumberToTextField("5");
 			}
 		});
 		btnNewButton_4.setFont(new Font("Tahoma", Font.PLAIN, 30));
@@ -108,8 +103,7 @@ public class Calculator {
 		JButton btnNewButton_5 = new JButton("6");
 		btnNewButton_5.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				String str = textField.getText();
-				textField.setText(str + "6");
+				addNumberToTextField("6");
 			}
 		});
 		btnNewButton_5.setFont(new Font("Tahoma", Font.PLAIN, 30));
@@ -119,8 +113,7 @@ public class Calculator {
 		JButton btnNewButton_6 = new JButton("1");
 		btnNewButton_6.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				String str = textField.getText();
-				textField.setText(str + "1");
+				addNumberToTextField("1");
 			}
 		});
 		btnNewButton_6.setFont(new Font("Tahoma", Font.PLAIN, 30));
@@ -130,8 +123,7 @@ public class Calculator {
 		JButton btnNewButton_7 = new JButton("2");
 		btnNewButton_7.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				String str = textField.getText();
-				textField.setText(str + "2");
+				addNumberToTextField("2");
 			}
 		});
 		btnNewButton_7.setFont(new Font("Tahoma", Font.PLAIN, 30));
@@ -141,8 +133,7 @@ public class Calculator {
 		JButton btnNewButton_8 = new JButton("3");
 		btnNewButton_8.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				String str = textField.getText();
-				textField.setText(str + "3");
+				addNumberToTextField("3");
 			}
 		});
 		btnNewButton_8.setFont(new Font("Tahoma", Font.PLAIN, 30));
@@ -153,8 +144,9 @@ public class Calculator {
 		btnNewButton_9.setFont(new Font("Tahoma", Font.PLAIN, 30));
 		btnNewButton_9.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				String str = textField.getText();
-				textField.setText(str + "0");
+				System.out.print(textField.getText() + "\n");
+				if(textField.getText() != "")
+					addNumberToTextField("0");
 			}
 		});
 		btnNewButton_9.setBounds(53, 403, 168, 56);
@@ -163,8 +155,11 @@ public class Calculator {
 		JButton btnNewButton_8_1 = new JButton(".");
 		btnNewButton_8_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				String str = textField.getText();
-				textField.setText(str + ".");
+				if(textField.getText() == "") {
+					textField.setText("0.");
+				} else {
+					addNumberToTextField(".");
+				}
 			}
 		});
 		btnNewButton_8_1.setFont(new Font("Tahoma", Font.PLAIN, 30));
@@ -257,11 +252,13 @@ public class Calculator {
 		frmCalculator.getContentPane().add(btnNewButton_8_7);
 		
 		textField = new JTextField();
+		textField.setEditable(false);
 		textField.setHorizontalAlignment(SwingConstants.RIGHT);
 		textField.setFont(new Font("Tahoma", Font.PLAIN, 30));
 		textField.setBounds(53, 46, 346, 83);
 		frmCalculator.getContentPane().add(textField);
 		textField.setColumns(10);
+		textField.setText("");
 		
 		JButton btnNewButton_8_6_1 = new JButton("+/-");
 		btnNewButton_8_6_1.addActionListener(new ActionListener() {
@@ -277,5 +274,14 @@ public class Calculator {
 		btnNewButton_8_6_1.setFont(new Font("Tahoma", Font.PLAIN, 25));
 		btnNewButton_8_6_1.setBounds(231, 139, 79, 56);
 		frmCalculator.getContentPane().add(btnNewButton_8_6_1);
+	}
+	
+	private void addNumberToTextField(String nr) {
+		String str = textField.getText();
+		if(str == "0") {
+			textField.setText(nr);
+		} else {
+			textField.setText(str + nr);
+		}
 	}
 }

@@ -1,5 +1,6 @@
 package lab1;
-// Crainiciuc Filaret-Niculai gr 3142A
+//Crainiciuc Filaret-Niculai
+//Gr 3142A
 public class Result {
 	
 	public Result() {

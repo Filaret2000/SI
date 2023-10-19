@@ -1,5 +1,6 @@
 package lab1;
-//Crainiciuc Filaret-Niculai gr 3142A
+//Crainiciuc Filaret-Niculai
+//Gr 3142A
 public class Arithmetic {
 	private double a, b;
 	private String operation;
@@ -22,45 +23,29 @@ public class Arithmetic {
 	}
 	
 	public String calculate() {
-		String res;
+		String res = "";
 		Double r;
 		switch (operation) {
 		case "+":
 			r = a + b;
-			if(result.isInt(r)) {
-				res = Integer.toString((int)Math.round(r));
-			}
-			else {
-				res = Double.toString(r);
-			}
+			res = intOrDoubleToString(r, res);
+
 			return res;
 		case "-":
 			r = a - b;
-			if(result.isInt(r)) {
-				res = Integer.toString((int)Math.round(r));
-			}
-			else {
-				res = Double.toString(r);
-			}
+			res = intOrDoubleToString(r, res);
+
 			return res;
 		case "*":
 			r = a * b;
-			if(result.isInt(r)) {
-				res = Integer.toString((int)Math.round(r));
-			}
-			else {
-				res = Double.toString(r);
-			}
+			res = intOrDoubleToString(r, res);
+
 			return res;
 		case "/":
 			if(result.isDevidePossible(a, b)) {
 				r = a / b;
-				if(result.isInt(r)) {
-					res = Integer.toString((int)Math.round(r));
-				}
-				else {
-					res = Double.toString(r);
-				}
+				res = intOrDoubleToString(r, res);
+				
 				return res;
 			} else {
 				return "NaN";
@@ -69,6 +54,16 @@ public class Arithmetic {
 		default:
 			return null;
 		}
+	}
+	
+	private String intOrDoubleToString(Double r, String res) {
+		if(result.isInt(r)) {
+			res = Integer.toString((int)Math.round(r));
+		}
+		else {
+			res = Double.toString(r);
+		}
+		return res;
 	}
 	
 	public void clear() {
